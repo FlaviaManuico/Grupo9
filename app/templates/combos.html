@@ -1,0 +1,59 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Pedido - Guido's Pizza</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/combos.css') }}">
+</head>
+<body>
+   
+    <div>   
+        <div class="enlace">
+        <img src="logo.JPG" alt="" class="logo">
+        </div>
+        <ul class="heading">     
+            <li><a href="entradas.html">Entradas 🥟</a></li>
+            <li><a href="pizzas.html">Pizzas 🍕</a></li>
+            <li><a href="lasagnas.html">Lasagnas 🍝</a></li>
+            <li><a href="combos.html">Combos ⭐️</a></li>
+            <li><a href="bebidas.html">Bebidas 🥤</a></li>
+            <li><a href="postres.html">Postres 🍰</a></li>
+        </ul>
+    </div>
+    <div class="menu">
+    
+        <div class="combos">
+            <img src="combos/ComboPersonal.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Combo Personal</h5>
+                    <h5 class="price"> $8 </h5>
+                </div>
+                <p>Este combo incluye una pizza de tamaño personal (a tu elección), una gasesosa personal Coca Cola y 2 panes al ajo</p>
+                <select>
+                    <option>Pizza Americana</option>
+                    <option>Pizza Hawaiana</option>
+                    <option>Pizza Pepperoni</option>
+                </select>
+                <button>Seleccionar</button>
+            </div>
+        </div>
+
+        <div class="combos">
+            <img src="combos/ComboMediano.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Combo Mediano</h5>
+                    <h5 class="price"> $15 </h5>
+                </div>
+                <p>Este combo incluye una pizza de tamaño mediano (a tu elección), una gaseosa Coca Cola y 5 panes al ajo.</p>
+                <select>
+                    <option>Pizza Americana</option>
+                    <option>Pizza Hawaiana</option>
+                    <option>Pizza Pepperoni</option>
+                </select>
+                <button>Seleccionar</button>
+            </div>
+        </div>
+    </div>
+
+</body></html>
