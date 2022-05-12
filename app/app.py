@@ -81,6 +81,10 @@ def log_in():
     else:
         flash('Usuario o contraseña incorrecta')
         return redirect(url_for('index'))
+        
+@app.route('/registrarse',methods=['GET'])
+def registrar():
+    return render_template('registro.html')
 
 @app.route('/guidos/create_user',methods=['POST'])
 def create_user():
