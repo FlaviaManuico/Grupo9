@@ -7,3 +7,5 @@ Integrantes del grupo:
 - Maria Fernanda Surco Vergara - 202110358
 - Alvaro Riojas Baldeon - 201710184
 - Carlos Sebastian Sobenes Obregon - 202110659
+
+Descripción del proyecto:
