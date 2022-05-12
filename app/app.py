@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 #Configuration
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:alejandro_1596@localhost:5432/pizza'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost:5432/pizza'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'super secret key'
 db = SQLAlchemy(app)
@@ -130,4 +130,4 @@ def create_user():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)
