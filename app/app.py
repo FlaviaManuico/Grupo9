@@ -82,5 +82,41 @@ def log_in():
         flash('Usuario o contraseña incorrecta')
         return redirect(url_for('index'))
 
+@app.route('/guidos/create_user',methods=['POST'])
+def create_user():
+    try:       
+        user= request.form.get('usuario','')
+        email= request.form.get('email','')
+        contrasena= request.form.get('contrasena','')
+        nombre= request.form.get('nombre','')
+        apellido= request.form.get('apellido','')
+        direccion= request.form.get('direccion','')
+        telefono= request.form.get('telefono','')
+        respuesta=[user,contrasena,nombre,apellido,email,direccion,telefono]
+        user_base= usuario.query.filter_by(usuario=user).first()
+        email_base= usuario.query.filter_by(email=email).first()
+        
+        if '' in respuesta :
+            session['registro'] = user
+            flash('Por favor llene todos los casilleros')
+            return redirect(url_for('registrar'))
+        elif user_base.usuario==user or email_base.email==email:
+            session['registro'] = user
+            flash('Usuario o correo ya usado')
+            return redirect(url_for('registrar'))
+        else:
+            new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
+            db.session.add(new_user)
+            db.session.commit()
+        
+    except Exception as e:
+        print(e)
+        print(sys.exc_info())
+        db.session.rollback()
+    finally:
+        db.session.close()
+
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
