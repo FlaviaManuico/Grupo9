@@ -101,17 +101,24 @@ def create_user():
         email_base= usuario.query.filter_by(email=email).first()
         
         if '' in respuesta :
+            print(respuesta)
             session['registro'] = user
             flash('Por favor llene todos los casilleros')
             return redirect(url_for('registrar'))
-        elif user_base.usuario==user or email_base.email==email:
-            session['registro'] = user
-            flash('Usuario o correo ya usado')
-            return redirect(url_for('registrar'))
         else:
-            new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
-            db.session.add(new_user)
-            db.session.commit()
+            if user_base==None and email_base==None:
+                new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
+                db.session.add(new_user)
+                db.session.commit()
+            else:
+                if user_base.usuario==user or email_base.email==email:
+                    session['registro'] = user
+                    flash('Usuario o correo ya usado')
+                    return redirect(url_for('registrar'))
+                else:
+                    new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
+                    db.session.add(new_user)
+                    db.session.commit()
         
     except Exception as e:
         print(e)
