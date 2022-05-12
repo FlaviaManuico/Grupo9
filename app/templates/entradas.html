@@ -1,0 +1,56 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>Pedido - Guido's Pizza</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/entradas.css') }}">
+</head>
+<body>
+   
+    <div>   
+        <div class="enlace">
+        <img src="logo.JPG" alt="" class="logo">
+        </div>
+        <ul class="heading">     
+            <li><a href="entradas.html">Entradas 🥟</a></li>
+            <li><a href="pizzas.html">Pizzas 🍕</a></li>
+            <li><a href="lasagnas.html">Lasagnas 🍝</a></li>
+            <li><a href="combos.html">Combos ⭐️</a></li>
+            <li><a href="bebidas.html">Bebidas 🥤</a></li>
+            <li><a href="postres.html">Postres 🍰</a></li>
+        </ul>
+    </div>
+    <div class="menu">
+    
+        <div class="entradas">
+            <img src="entradas/PanAlAjo.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Pan al Ajo</h5>
+                    <h5 class="price"> $8 </h5>
+                </div>
+                <select>
+                    <option>x2</option>
+                    <option>x5</option>
+                    <option>x10</option>
+                    <option>x15</option>
+                </select>
+                <button>Seleccionar</button>
+            </div>
+        </div>
+
+        <div class="entradas">
+            <img src="entradas/PalitosDeQueso.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5>Palitos de Queso</h5>
+                    <h5 class="price"> $8 </h5>
+                </div>
+                <select>
+                    <option>x4</option>
+                    <option>x8</option>
+                </select>
+                <button>Seleccionar</button>
+            </div>
+        </div>
+
+</body></html>
