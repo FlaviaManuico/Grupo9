@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 #Configuration
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost:5432/pizza'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:alejandro_1596@localhost:5432/pizza'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'super secret key'
 db = SQLAlchemy(app)
@@ -101,17 +101,24 @@ def create_user():
         email_base= usuario.query.filter_by(email=email).first()
         
         if '' in respuesta :
+            print(respuesta)
             session['registro'] = user
             flash('Por favor llene todos los casilleros')
             return redirect(url_for('registrar'))
-        elif user_base.usuario==user or email_base.email==email:
-            session['registro'] = user
-            flash('Usuario o correo ya usado')
-            return redirect(url_for('registrar'))
         else:
-            new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
-            db.session.add(new_user)
-            db.session.commit()
+            if user_base==None and email_base==None:
+                new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
+                db.session.add(new_user)
+                db.session.commit()
+            else:
+                if user_base.usuario==user or email_base.email==email:
+                    session['registro'] = user
+                    flash('Usuario o correo ya usado')
+                    return redirect(url_for('registrar'))
+                else:
+                    new_user= usuario(user,contrasena,nombre,apellido,email,direccion,telefono)
+                    db.session.add(new_user)
+                    db.session.commit()
         
     except Exception as e:
         print(e)
