@@ -64,3 +64,23 @@ class pedido(db.Model):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente} fechaHora={self.fechaHora} delivery={self.delivery}'
 
 db.create_all()
+
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('ingresar.html')
+
+
+@app.route('/guidos/login', methods=['POST'])
+def log_in():
+    username= request.form.get('NombreDeUsuario','')
+    password= request.form.get('Contraseña','')
+    user= usuario.query.filter_by(usuario=username).first()
+    if user is not None and user.verify_password(password):
+        session['username'] = username
+        return render_template("pizzas.html")
+    else:
+        flash('Usuario o contraseña incorrecta')
+        return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
