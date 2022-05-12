@@ -41,3 +41,26 @@ class usuario(db.Model):
 
     def __repr__(self):
         return f'Usuario: id={self.id}, usuario={self.usuario}, contrasena={self.contrasena}, nombre={self.nombre}, apellido={self.apellido}, email={self.email}, direccion={self.direccion}, telefono={self.telefono},fechaHora={self.fechaHora}'
+
+class producto(db.Model):
+    __tablename__ = 'productos'
+    id=db.Column(db.Integer,primary_key=True)
+    comida = db.Column(db.String(),nullable=False)
+    precio= db.Column(db.Integer, nullable=False)
+     
+    def __repr__(self):
+        return f'Producto: id={self.id} comida={self.comida}, precio={self.precio}'
+
+class pedido(db.Model):
+    __tablename__ = 'pedidos'
+    id = db.Column(db.Integer(), primary_key=True)
+    descripcion = db.Column(db.String(),nullable=False)
+    precio = db.Column(db.Float, nullable=False)
+    cliente = db.Column(db.String(), nullable=False)
+    fechaHora = db.Column(db.DateTime, nullable=False)
+    delivery = db.Column(db.Integer, nullable=False)
+
+    def __repr__(self):
+        return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente} fechaHora={self.fechaHora} delivery={self.delivery}'
+
+db.create_all()
