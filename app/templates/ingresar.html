@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/ingresar.css') }}">
+        <title>Ingreso de Usuario</title>
+    </head>
+    <body >
+        {% with messages=get_flashed_messages() %}
+            {%if messages%}
+                {%for message in messages%}
+                <div id="mensaje" class="msj">
+                    {{message}}
+                </div>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <div class="form-login"> 
+            <h5>Ingresar cliente</h5>
+            <form id="ingresar" action="/guidos/login" method="POST">
+                <input class="controls" type="text" id="NombreDeUsuario" name="NombreDeUsuario" value="" placeholder="Ingrese su usuario">
+                <input class="controls" type="password" id="Contraseña" name="Contraseña" value="" placeholder="Ingrese su contraseña">
+                <p><input class="button" type="submit" value="Ingresar"></p>
+            </form>
+            <form id="irRegistro" >
+                <p><a href="/registrarse" id="Registrarse">Registrarse</a></p>
+            </form>
+        </div>
+    </body>
+</html>
