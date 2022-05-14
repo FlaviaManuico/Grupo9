@@ -46,7 +46,7 @@ class producto(db.Model):
     __tablename__ = 'productos'
     id=db.Column(db.Integer,primary_key=True)
     comida = db.Column(db.String(),nullable=False)
-    precio= db.Column(db.Integer, nullable=False)
+    precio= db.Column(db.Float(), nullable=False)
      
     def __repr__(self):
         return f'Producto: id={self.id} comida={self.comida}, precio={self.precio}'
@@ -55,7 +55,7 @@ class pedido(db.Model):
     __tablename__ = 'pedidos'
     id = db.Column(db.Integer(), primary_key=True)
     descripcion = db.Column(db.String(),nullable=False)
-    precio = db.Column(db.Float, nullable=False)
+    precio = db.Column(db.Float(), nullable=False)
     cliente = db.Column(db.String(), nullable=False)
     fechaHora = db.Column(db.DateTime, nullable=False)
     delivery = db.Column(db.Integer, nullable=False)
@@ -63,7 +63,88 @@ class pedido(db.Model):
     def __repr__(self):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente} fechaHora={self.fechaHora} delivery={self.delivery}'
 
+
+#Entradas
+pAjo2 = producto(comida='Pan al Ajo (x2)', precio=4.00)
+pAjo4 = producto(comida='Pan al Ajo (x4)', precio=8.00)
+pQueso2 = producto(comida='Palitos de Queso (x2)', precio=5.50)
+pQueso4 = producto(comida='Palitos de Queso (x4)', precio=11.00)
+
+#Pizzas
+PHf= producto(comida='Pizza Hawaiana Familiar', precio= 32.90)
+PHg= producto(comida='Pizza Hawaiana Grande', precio= 22.90)
+PHm= producto(comida='Pizza Hawaiana Mediana', precio= 16.90)
+PHp= producto(comida='Pizza Hawaiana Personal', precio= 10.00)
+PAf= producto(comida='Pizza Americana Familiar', precio= 29.90)
+PAg= producto(comida='Pizza Americana Grande', precio= 19.90)
+PAm= producto(comida='Pizza Americana Mediana', precio= 13.90)
+PAp= producto(comida='Pizza Americana Personal', precio =7.00)
+PPf= producto(comida='Pizza de Pepperoni Familiar', precio = 30.90)
+PPg= producto(comida='Pizza de Pepperoni Grande', precio= 20.90)
+PPm= producto(comida='Pizza de Pepperoni Mediana', precio= 14.90)
+PPp= producto(comida='Pizza de Pepperoni Personal', precio= 8.00)
+PMf= producto(comida='Pizza Mozarella Familiar', precio =31.90)
+PMg= producto(comida='Pizza Mozarella Grande', precio = 21.90)
+PMm= producto(comida='Pizza Mozarella Mediana', precio= 15.90)
+PMp= producto(comida='Pizza Mozarella Personal', precio = 9.00)
+
+#Lasagnas
+lVegetariana = producto(comida='Lasagna Vegetariana', precio=22.90)
+lCarne = producto(comida='Lasagna de Carne', precio=20.90)
+lHawaiana = producto(comida='Lasagna Hawaiana', precio=22.90)
+lQueso = producto(comida='Lasagna de 4 Quesos', precio=24.90)
+lChamp = producto(comida='Lasagna de Champiñones', precio=25.90)
+
+#Combos
+cpAmericana = producto(comida='Combo Personal - Pizza Americana', precio=11.50)
+cpPepperoni = producto(comida='Combo Personal - Pizza Pepperoni', precio=12.50)
+cpHawaiana = producto(comida='Combo Personal - Pizza Hawaiana', precio=14.50)
+cmAmericana = producto(comida='Combo Mediano - Pizza Americana', precio=25.90)
+cmPepperoni = producto(comida='Combo Mediano - Pizza Pepperoni', precio=26.50)
+cmHawaiana = producto(comida='Combo Mediano - Pizza Hawaiana', precio=28.50)
+
+#Bebidas
+CPersonal= producto(comida='Coca Cola Personal', precio=2.50)
+CPersonalSA= producto(comida= 'Coca Cola Personal Sin Azucar', precio= 7.20)
+Cp1L= producto(comida='Coca Cola 1L', precio= 4.00)
+Co1LSA= producto(comida= 'Coca Cola 1L Sin Azucar', precio= 4.20)
+Co1_5L= producto(comida= 'Coca Cola 1.5L', precio= 7.00)
+Co1_5SA= producto(comida= 'Coca Cola 1.5L Sin Azucar', precio= 7.20)
+InP= producto(comida= 'Inca Kola Personal', precio= 2.50)
+InPSA= producto(comida= 'Inca Kola Personal Sin Azucar',precio= 2.70)
+In1L= producto(comida= 'Inca Kola 1L', precio= 4.00)
+In1lSA= producto(comida= 'Inca Kola 1L Sin Azucar', precio= 4.20)
+In1_5= producto(comida= 'Inca Kola 1.5L', precio= 7.00)
+In1_5SA= producto(comida='Inca Kola 1.5L Sin Azucar',precio= 7.20)
+FaP= producto(comida='Fanta Personal', precio= 3.20)
+SpP= producto(comida='Sprite Personal', precio= 3.20)
+
+#Postres
+VCh= producto(comida='Volcán de Chocolate',precio=6.00)
+RdC6= producto(comida='Rollos de Canela x6', precio=14.00)
+MPdM= producto(comida='Mini Pie de Manzana', precio=6.00)
+
 db.create_all()
+
+db.session.add_all([pAjo2, pAjo4, pQueso2, pQueso4, PHf, PHg, PHm, PHp, PAf, PAg, PAm, PAp,
+PPf, PPg, PPm, PPp, PMf, PMg, PMm, PMp, lVegetariana, lCarne,lHawaiana,lQueso,lChamp,
+cpAmericana, cpPepperoni, cpHawaiana, cmAmericana, cmPepperoni, cmHawaiana, VCh, RdC6, MPdM])
+db.session.add(CPersonal)
+db.session.add(CPersonalSA)
+db.session.add(Cp1L)
+db.session.add(Co1LSA)
+db.session.add(Co1_5L)
+db.session.add(Co1_5SA)
+db.session.add(InP)
+db.session.add(InPSA)
+db.session.add(In1L)
+db.session.add(In1lSA)
+db.session.add(In1_5)
+db.session.add(In1_5SA)
+db.session.add(FaP)
+db.session.add(SpP)
+
+db.session.commit()
 
 @app.route('/', methods=['GET'])
 def index():
