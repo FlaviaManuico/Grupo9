@@ -124,26 +124,26 @@ VCh= producto(comida='Volcán de Chocolate',precio=6.00)
 RdC6= producto(comida='Rollos de Canela x6', precio=14.00)
 MPdM= producto(comida='Mini Pie de Manzana', precio=6.00)
 
+if len(producto.query.all()) == 0:
+    db.session.add_all([pAjo2, pAjo4, pQueso2, pQueso4, PHf, PHg, PHm, PHp, PAf, PAg, PAm, PAp,
+    PPf, PPg, PPm, PPp, PMf, PMg, PMm, PMp, lVegetariana, lCarne,lHawaiana,lQueso,lChamp,
+    cpAmericana, cpPepperoni, cpHawaiana, cmAmericana, cmPepperoni, cmHawaiana, VCh, RdC6, MPdM])
+    db.session.add(CPersonal)
+    db.session.add(CPersonalSA)
+    db.session.add(Cp1L)
+    db.session.add(Co1LSA)
+    db.session.add(Co1_5L)
+    db.session.add(Co1_5SA)
+    db.session.add(InP)
+    db.session.add(InPSA)
+    db.session.add(In1L)
+    db.session.add(In1lSA)
+    db.session.add(In1_5)
+    db.session.add(In1_5SA)
+    db.session.add(FaP)
+    db.session.add(SpP)
+    db.session.commit()
 
-db.session.add_all([pAjo2, pAjo4, pQueso2, pQueso4, PHf, PHg, PHm, PHp, PAf, PAg, PAm, PAp,
-PPf, PPg, PPm, PPp, PMf, PMg, PMm, PMp, lVegetariana, lCarne,lHawaiana,lQueso,lChamp,
-cpAmericana, cpPepperoni, cpHawaiana, cmAmericana, cmPepperoni, cmHawaiana, VCh, RdC6, MPdM])
-db.session.add(CPersonal)
-db.session.add(CPersonalSA)
-db.session.add(Cp1L)
-db.session.add(Co1LSA)
-db.session.add(Co1_5L)
-db.session.add(Co1_5SA)
-db.session.add(InP)
-db.session.add(InPSA)
-db.session.add(In1L)
-db.session.add(In1lSA)
-db.session.add(In1_5)
-db.session.add(In1_5SA)
-db.session.add(FaP)
-db.session.add(SpP)
-
-db.session.commit()
 
 @app.route('/', methods=['GET'])
 def index():
