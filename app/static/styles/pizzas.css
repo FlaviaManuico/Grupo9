@@ -12,6 +12,11 @@ body{
     height: 80px;
 	margin: auto;
 }
+.carrito{
+    text-align: center;
+    height: 30px;
+	margin: auto;
+}
 .menu{
     padding: 0;
     display: grid;
