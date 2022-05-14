@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@localhost:543
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'super secret key'
 db = SQLAlchemy(app)
-
+ 
 #Models
 class usuario(db.Model):
     __tablename__ = 'usuarios'
