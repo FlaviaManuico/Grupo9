@@ -8,7 +8,7 @@
    
     <div>   
         <div class="enlace">
-        <img src="logo.JPG" alt="" class="logo">
+        <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
         </div>
         <ul class="heading">     
             <li><a href="entradas.html">Entradas 🥟</a></li>
@@ -17,12 +17,14 @@
             <li><a href="combos.html">Combos ⭐️</a></li>
             <li><a href="bebidas.html">Bebidas 🥤</a></li>
             <li><a href="postres.html">Postres 🍰</a></li>
+            <li><a href="pedidos.html">🛒</a></li>
+
         </ul>
     </div>
     <div class="menu">
     
         <div class="pizzas">
-            <img src="pizzas/Hawaiana.jpeg">
+            <img src="{{ url_for('static',filename='styles/pizzas/Hawaiana.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Pizza Hawaiana</h5>
@@ -39,7 +41,7 @@
         </div>
 
         <div class="pizzas">
-            <img src="pizzas/Americana.jpeg">
+            <img src="{{ url_for('static',filename='styles/pizzas/Americana.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Pizza Americana</h5>
@@ -56,7 +58,7 @@
         </div>
 
         <div class="pizzas">
-            <img src="pizzas/Pepperoni.jpeg">
+            <img src="{{ url_for('static',filename='styles/pizzas/Pepperoni.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Pizza de Pepperoni</h5>
@@ -73,7 +75,7 @@
         </div>
 
         <div class="pizzas">
-            <img src="pizzas/Queso.jpeg">
+            <img src="{{ url_for('static',filename='styles/pizzas/Queso.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Pizza Mozzarella</h5>
