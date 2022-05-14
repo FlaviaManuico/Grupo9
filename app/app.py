@@ -85,6 +85,34 @@ def log_in():
 @app.route('/registrarse',methods=['GET'])
 def registrar():
     return render_template('registro.html')
+    
+@app.route('/entradas',methods=['GET'])
+def ir_entrada():
+    return render_template('entradas.html')
+
+@app.route('/pizzas',methods=['GET'])
+def ir_pizzas():
+    return render_template('pizzas.html')
+
+@app.route('/lasagnas',methods=['GET'])
+def ir_lasagnas():
+    return render_template('lasagna.html')
+
+@app.route('/combos',methods=['GET'])
+def ir_comobos():
+    return render_template('combos.html')
+
+@app.route('/bebidas',methods=['GET'])
+def ir_bebidas():
+    return render_template('bebidas.html')
+
+@app.route('/postres',methods=['GET'])
+def ir_postres():
+    return render_template('postres.html')
+
+@app.route('/pedidos',methods=['GET'])
+def ir_pedidos():
+    return render_template('pedidos.html')
 
 @app.route('/guidos/create_user',methods=['POST'])
 def create_user():
