@@ -8,7 +8,7 @@
    
     <div>   
         <div class="enlace">
-        <img src="logo.JPG" alt="" class="logo">
+            <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
         </div>
         <ul class="heading">     
             <li><a href="entradas.html">Entradas 🥟</a></li>
@@ -22,7 +22,7 @@
     <div class="menu">
     
         <div class="entradas">
-            <img src="entradas/PanAlAjo.jpeg">
+            <img src="{{ url_for('static',filename='styles/entradas/PanAlAjo.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Pan al Ajo (x2)</h5>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="entradas">
-            <img src="entradas/PalitosDeQueso.jpeg">
+            <img src="{{ url_for('static',filename='styles/entradas/PalitosDeQueso.jpeg') }}">
             <div class="details">
                 <div class="details-sub">
                     <h5>Palitos de Queso (x2)</h5>
