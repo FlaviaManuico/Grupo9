@@ -19,6 +19,15 @@ body{
     grid-gap: 20px 40px;
 }
 
+/* .enlace{
+    display:flex;
+    list-style:none;
+    padding: 0;
+    background:#cb202d;
+    width: 100%;
+	max-width: 1000px;
+	margin: auto;
+} */
 .enlace{
     background-color: #cb202d;
     color: #ffffff;
@@ -85,12 +94,20 @@ body{
     position: relative;
     width: 100%;
     border-radius: 15px 15px 0 0;
+    max-width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    -o-object-fit: contain;
+    object-fit: contain;
 }
 
 .details{
     padding: 20px 10px;
     display: grid;
-    grid-template-rows: auto 1fr 50px;
+    grid-template-rows: auto 1fr ;
     grid-row-gap: 15px;
 }
 .details-sub{
@@ -111,18 +128,7 @@ body{
     font-weight: 400;
     align-self: stretch;
 }
-.details>select{
-    background-color: #cf3625;
-    border: none;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    border-radius: 5px;
-    width: 100%;
-    height:50px;
 
-}
 .details>button{
     background-color: #439057;
     border: none;
@@ -130,6 +136,6 @@ body{
     font-size: 16px;
     font-weight: 600;
     border-radius: 5px;
-    width: 150px;
+    width: 100%;
     height: 40px;
 }
