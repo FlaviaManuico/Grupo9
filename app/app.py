@@ -63,7 +63,7 @@ class pedido(db.Model):
     def __repr__(self):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente}'
 
-
+db.create_all()
 #Entradas
 pAjo2 = producto(comida='Pan al Ajo (x2)', precio=4.00)
 pAjo4 = producto(comida='Pan al Ajo (x4)', precio=8.00)
@@ -124,7 +124,6 @@ VCh= producto(comida='Volcán de Chocolate',precio=6.00)
 RdC6= producto(comida='Rollos de Canela x6', precio=14.00)
 MPdM= producto(comida='Mini Pie de Manzana', precio=6.00)
 
-db.create_all()
 
 db.session.add_all([pAjo2, pAjo4, pQueso2, pQueso4, PHf, PHg, PHm, PHp, PAf, PAg, PAm, PAp,
 PPf, PPg, PPm, PPp, PMf, PMg, PMm, PMp, lVegetariana, lCarne,lHawaiana,lQueso,lChamp,
