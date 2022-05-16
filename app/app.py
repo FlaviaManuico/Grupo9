@@ -255,7 +255,7 @@ def ir_postres():
 
 @app.route('/pedidos', methods=['GET'])
 def ir_pedidos():
-    return render_template('pedidos.html')
+    return render_template('pedidos.html', pedidos=carrito_compra.query.all())
 
 
 @app.route('/guidos/create_user', methods=['POST'])
