@@ -14,12 +14,12 @@ Antes de mostrar el menú de la pizzería, la página pide ingresar a una cuenta
 
 Misión, Visión y Objetivos:
 
-    Nuestra misión es crear un servidor web  de confianza donde el usuario puede comprar su comida
-    Nuestra visión es poder crear un pagina web eficiente que satisfaga  las necesidades del usuario al pedir comida a  domicilio
-    Nuestros objetivos son:
-        - Ofrecer los  productos de la pizzeria
-        - Todos los productos se conduzcan adecuadamente al carrito de compras
-        - Se concrete satisfactoriamente la compra del usuario
+Nuestra misión es crear un servidor web  de confianza donde el usuario puede comprar su comida
+Nuestra visión es poder crear un pagina web eficiente que satisfaga  las necesidades del usuario al pedir comida a  domicilio
+Nuestros objetivos son:
+ - Ofrecer los  productos de la pizzeria
+ - Todos los productos se conduzcan adecuadamente al carrito de compras
+ - Se concrete satisfactoriamente la compra del usuario
 
 
 Información acerca de las librerías/frameworks/plugins utilizadas:
