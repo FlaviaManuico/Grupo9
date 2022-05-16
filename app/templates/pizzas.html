@@ -1,95 +1,175 @@
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>Pedido - Guido's Pizza</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pizzas.css') }}">
-</head>
-<body>
-   
-    <div>   
-        <div class="enlace">
-        <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
-        </div>
-        <ul class="heading">     
-            <li><a href="/entradas">Entradas 🥟</a></li>
-            <li><a href="/pizzas">Pizzas 🍕</a></li>
-            <li><a href="/lasagnas">Lasagnas 🍝</a></li>
-            <li><a href="/combos">Combos ⭐️</a></li>
-            <li><a href="/bebidas">Bebidas 🥤</a></li>
-            <li><a href="/postres">Postres 🍰</a></li>
-            <li><a href="/pedidos">Carrito 🛒</a></li>
-
-        </ul>
-    </div>
-    <div class="menu">
+        <meta charset="UTF-8">
+        <title>Pedido - Guido's Pizza</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/pizzas.css') }}">
+    </head>
+    <body>
     
-        <div class="pizzas">
-            <img src="{{ url_for('static',filename='styles/pizzas/Hawaiana.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pizza Hawaiana</h5>
-                    <h5 class="price"> Desde S/ 10.00 </h5>
-                </div>
-                <select>
-                    <option>Familiar (+ S/ 22.90) </option>
-                    <option>Grande (+ S/ 12.90)</option>
-                    <option>Mediana (+ S/ 6.90)</option>
-                    <option>Personal</option>
-                </select>
-                <button>Añadir al Carrito</button>
+        <div>   
+            <div class="enlace">
+            <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
             </div>
-        </div>
+            <ul class="heading">     
+                <li><a href="/entradas">Entradas 🥟</a></li>
+                <li><a href="/pizzas">Pizzas 🍕</a></li>
+                <li><a href="/lasagnas">Lasagnas 🍝</a></li>
+                <li><a href="/combos">Combos ⭐️</a></li>
+                <li><a href="/bebidas">Bebidas 🥤</a></li>
+                <li><a href="/postres">Postres 🍰</a></li>
+                <li><a href="/pedidos">🛒</a></li>
 
-        <div class="pizzas">
-            <img src="{{ url_for('static',filename='styles/pizzas/Americana.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pizza Americana</h5>
-                    <h5 class="price"> Desde S/ 7.00 </h5>
+            </ul>
+        </div>
+        <div class="menu">
+        
+            <div class="pizzas">
+                <img src="{{ url_for('static',filename='styles/pizzas/Hawaiana.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pizza Hawaiana</h5>
+                        <h5 class="price"> Desde S/ 10.00 </h5>
+                    </div>
+                    <select>
+                        <option>Familiar (+ S/ 22.90) </option>
+                        <option>Grande (+ S/ 12.90)</option>
+                        <option>Mediana (+ S/ 6.90)</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="boton">
+                        <button type="submit" class="btn" onclick="openPopup()">Añadir al Carrito</button>
+                        <div class="popup" id="popup">
+                            <img src="{{ url_for('static',filename='styles/check.png')}}">
+                            <h2>Listo</h2>
+                            <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                            <button type="button" onclick="closePopup()">OK</button>
+                            <!-- <button type="button">Continuar comprando</button> -->
+                        </div>
+                    </div>                
                 </div>
-                <select>
-                    <option>Familiar (+ S/ 22.90)</option>
-                    <option>Grande (+ S/ 12.90)</option>
-                    <option>Mediana (+ S/ 6.90)</option>
-                    <option>Personal</option>
-                </select>
-                <button>Añadir al Carrito</button>
             </div>
-        </div>
 
-        <div class="pizzas">
-            <img src="{{ url_for('static',filename='styles/pizzas/Pepperoni.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pizza de Pepperoni</h5>
-                    <h5 class="price"> Desde S/ 8.00</h5>
+            <script>
+                let popup = document.getElementById("popup");
+                function openPopup(){
+                    popup.classList.add("open-popup");
+                }
+                function closePopup(){
+                    popup.classList.remove("open-popup");
+                }
+            </script>
+
+
+            <div class="pizzas">
+                <img src="{{ url_for('static',filename='styles/pizzas/Americana.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pizza Americana</h5>
+                        <h5 class="price"> Desde S/ 7.00 </h5>
+                    </div>
+                    <select>
+                        <option>Familiar (+ S/ 22.90)</option>
+                        <option>Grande (+ S/ 12.90)</option>
+                        <option>Mediana (+ S/ 6.90)</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="boton">
+                        <button type="submit" class="btn" onclick="openPopup2()">Añadir al Carrito</button>
+                        <div class="popup2" id="popup2">
+                            <img src="{{ url_for('static',filename='styles/check.png')}}">
+                            <h2>Listo</h2>
+                            <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                            <button type="button" onclick="closePopup2()">OK</button>
+                            <!-- <button type="button">Continuar comprando</button> -->
+                        </div>
+                    </div>                
                 </div>
-                <select>
-                    <option>Familiar (+ S/ 22.90)</option>
-                    <option>Grande (+ S/ 12.90)</option>
-                    <option>Mediana (+ S/ 6.90)</option>
-                    <option>Personal</option>
-                </select>
-                <button>Añadir al Carrito</button>
             </div>
-        </div>
 
-        <div class="pizzas">
-            <img src="{{ url_for('static',filename='styles/pizzas/Queso.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pizza Mozzarella</h5>
-                    <h5 class="price">Desde S/ 9.00</h5>
+            <script>
+                let popup2 = document.getElementById("popup2");
+                function openPopup2(){
+                    popup2.classList.add("open-popup2");
+                }
+                function closePopup2(){
+                    popup2.classList.remove("open-popup2");
+                }
+            </script>
+
+
+            <div class="pizzas">
+                <img src="{{ url_for('static',filename='styles/pizzas/Pepperoni.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pizza de Pepperoni</h5>
+                        <h5 class="price"> Desde S/ 8.00</h5>
+                    </div>
+                    <select>
+                        <option>Familiar (+ S/ 22.90)</option>
+                        <option>Grande (+ S/ 12.90)</option>
+                        <option>Mediana (+ S/ 6.90)</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="boton">
+                        <button type="submit" class="btn" onclick="openPopup3()">Añadir al Carrito</button>
+                        <div class="popup3" id="popup3">
+                            <img src="{{ url_for('static',filename='styles/check.png')}}">
+                            <h2>Listo</h2>
+                            <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                            <button type="button" onclick="closePopup3()">OK</button>
+                            <!-- <button type="button">Continuar comprando</button> -->
+                        </div>
+                    </div>                
                 </div>
-                <select>
-                    <option>Familiar (+ S/ 22.90)</option>
-                    <option>Grande (+ S/ 12.90)</option>
-                    <option>Mediana (+ S/ 6.90)</option>
-                    <option>Personal</option>
-                </select>
-                <button>Añadir al Carrito</button>
             </div>
-        </div>
-    </div>
 
-</body></html>
+            <script>
+                let popup3 = document.getElementById("popup3");
+                function openPopup3(){
+                    popup3.classList.add("open-popup3");
+                }
+                function closePopup3(){
+                    popup3.classList.remove("open-popup3");
+                }
+            </script>
+
+
+            <div class="pizzas">
+                <img src="{{ url_for('static',filename='styles/pizzas/Queso.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pizza Mozzarella</h5>
+                        <h5 class="price">Desde S/ 9.00</h5>
+                    </div>
+                    <select id="opc" name="opciones">
+                        <option>Familiar (+ S/ 22.90)</option>
+                        <option>Grande (+ S/ 12.90)</option>
+                        <option>Mediana (+ S/ 6.90)</option>
+                        <option>Personal</option>
+                    </select>
+                    <div class="boton">
+                        <button type="submit" class="btn" onclick="openPopup4()">Añadir al Carrito</button>
+                        <div class="popup4" id="popup4">
+                            <img src="{{ url_for('static',filename='styles/check.png')}}">
+                            <h2>Listo</h2>
+                            <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                            <button type="button" onclick="closePopup4()">OK</button>
+                            <!-- <button type="button">Continuar comprando</button> -->
+                        </div>
+                    </div>                
+                </div>
+            </div>
+
+            <script>
+                let popup4 = document.getElementById("popup4");
+                function openPopup4(){
+                    popup4.classList.add("open-popup4");
+                }
+                function closePopup4(){
+                    popup4.classList.remove("open-popup4");
+                }
+            </script>
+
+
+    </body>
+</html>
