@@ -74,12 +74,13 @@ class pedido(db.Model):
     def __repr__(self):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente}'
 
+
 class carrito_compra(db.Model):
     __tablename__ = 'carrito'
-    id=db.Column(db.Integer,primary_key=True)
-    comida = db.Column(db.String(),nullable=False)
-    precio= db.Column(db.Float(),nullable=False)
-     
+    id = db.Column(db.Integer, primary_key=True)
+    comida = db.Column(db.String(), nullable=False)
+    precio = db.Column(db.Float(), nullable=False)
+
     def __repr__(self):
         return f'Producto: id={self.id} comida={self.comida}, precio={self.precio}'
 
@@ -219,9 +220,11 @@ def log_in():
 def registrar():
     return render_template('registro.html')
 
+
 @app.route('/logout', methods=['GET'])
 def logout():
     return render_template('ingresar.html')
+
 
 @app.route('/entradas', methods=['GET'])
 def ir_entrada():
@@ -257,6 +260,7 @@ def ir_postres():
 def ir_pedidos():
     return render_template('pedidos.html', pedidos=carrito_compra.query.all())
 
+
 @app.route('/pedidos/<pedido_id>/delete-pedido', methods=['DELETE'])
 def delete_pedido(pedido_id):
     response = {}
@@ -265,7 +269,7 @@ def delete_pedido(pedido_id):
         db.session.delete(pedido)
         db.session.commit()
         response['success'] = True
-    except:
+    except BaseException:
         response['success'] = False
         db.session.rollback()
     finally:
@@ -337,101 +341,108 @@ def create_user():
 
     return redirect(url_for('index'))
 
-@app.route('/pizzas/selecc',methods=['POST'])
+
+@app.route('/pizzas/selecc', methods=['POST'])
 def selec_pizza():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_pizzas'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
 
-@app.route('/entradas/selecc',methods=['POST'])
+
+@app.route('/entradas/selecc', methods=['POST'])
 def selec_entrada():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_entradas'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
 
-@app.route('/bebidas/selecc',methods=['POST'])
+
+@app.route('/bebidas/selecc', methods=['POST'])
 def selec_bebidas():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_bebidas'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
 
-@app.route('/postres/selecc',methods=['POST'])
+
+@app.route('/postres/selecc', methods=['POST'])
 def selec_postres():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_postres'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
 
-@app.route('/lasagnas/selecc',methods=['POST'])
+
+@app.route('/lasagnas/selecc', methods=['POST'])
 def selec_lasagnas():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_lasagnas'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
 
-@app.route('/combos/selecc',methods=['POST'])
+
+@app.route('/combos/selecc', methods=['POST'])
 def selec_combos():
     try:
-        prod_id= request.get_json()['prod_id']
+        prod_id = request.get_json()['prod_id']
         pedido_extract = producto.query.get(prod_id)
-        precio_n= pedido_extract.precio
-        comida_n= pedido_extract.comida
-        pedido_new = carrito_compra(comida=comida_n,precio=precio_n)
+        precio_n = pedido_extract.precio
+        comida_n = pedido_extract.comida
+        pedido_new = carrito_compra(comida=comida_n, precio=precio_n)
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_combos'))
-    except:
+    except BaseException:
         db.session.rollback()
     finally:
         db.session.close()
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
