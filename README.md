@@ -27,9 +27,36 @@ Nuestros objetivos son:
 
 
 
-## Información acerca de las librerías/frameworks/plugins utilizadas:
-
+## Información acerca de las librerías/frameworks/plugins utilizadas en Front-end, Back-end y Base de datos:
 Las librerías que hemos utilizado son:
- - Datetime: librería que nos permite saber la fecha y hora,  en la que el usuario realiza su pedido
- - Flask y flask_sqlalchemy: librerías las cuales nos ayudaron en la mayor parte del trabajo, conectando nuestro trabajo en la base de datos
- - Werkzeug.security: librería que nos ayudó a poder poner la contraseña del usuario en un estilo incógnito, para garantizar la seguridad del usuario.
+- Datetime: librería que nos permite saber la fecha y hora,  en la que el usuario realiza su pedido
+- Flask: Es un “micro” Framework escrito en Python y desarrollado para simplificar y hacer más fácil la creación de Aplicaciones Web bajo el patrón MVC.
+- flask_sqlalchemy: Un ORM que nos permite trabajar con las tablas de la base de datos como si estas fueran objetos.
+- Flask-migrate:Es una extensión que maneja la migración de la base de datos SQLAlchemy para las aplicaciones Flask.
+- Werkzeug.security: librería que nos ayudó a poder poner la contraseña del usuario en un estilo incógnito, para garantizar la seguridad del usuario.
+
+
+## Información acerca de los API. Requests y Responses de cada endpoint utilizado en el sistema:
+- ‘/’
+- ‘/guidos/login’
+- '/registrarse'
+- '/logout'
+- '/entradas'
+- '/pizzas'
+- '/lasagnas'
+- '/combos'
+- '/bebidas'
+- '/postres'
+- '/pedidos'
+- '/pedidos/<pedido_id>/delete-pedido'
+- '/guidos/create_user'
+- '/pizzas/selecc'
+- '/entradas/selecc'
+- '/bebidas/selecc'
+- '/postres/selecc'
+- '/lasagnas/selecc'
+- '/combos/selecc'
+ 
+## Hosts:
+- Puerto: 5000
+
