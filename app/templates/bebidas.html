@@ -1,216 +1,232 @@
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>Pedido - Guido's Pizza</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bebidas.css') }}">
-</head>
-<body>
-    <div>   
-        <div class="enlace">
-            <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
+        <meta charset="UTF-8">
+        <title>Pedido - Guido's Pizza</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bebidas.css') }}">
+    </head>
+    <body>
+        <div>   
+            <div class="enlace">
+                <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
+            </div>
+            <ul class="heading"> 
+                <li><a href="/entradas">Entradas 🥟</a></li>
+                <li><a href="/pizzas">Pizzas 🍕</a></li>
+                <li><a href="/lasagnas">Lasagnas 🍝</a></li>
+                <li><a href="/combos">Combos ⭐️</a></li>
+                <li><a href="/bebidas">Bebidas 🥤</a></li>
+                <li><a href="/postres">Postres 🍰</a></li>
+                <li><a href="/pedidos">Carrito 🛒</a></li>
+                <li><a href="/logout">Log Out ❌</a></li>
+                
+            </ul>
         </div>
-        <ul class="heading"> 
-            <li><a href="/entradas">Entradas 🥟</a></li>
-            <li><a href="/pizzas">Pizzas 🍕</a></li>
-            <li><a href="/lasagnas">Lasagnas 🍝</a></li>
-            <li><a href="/combos">Combos ⭐️</a></li>
-            <li><a href="/bebidas">Bebidas 🥤</a></li>
-            <li><a href="/postres">Postres 🍰</a></li>
-            <li><a href="/pedidos">Carrito 🛒</a></li>
-            <li><a href="/logout">Log Out ❌</a></li>
+        
+        <div class="menu">        
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaCola1.5.jpg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola 1.5L</h5>
+                        <h5 class="price"> S/ 7.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="35">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKola1.5L.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Inca Kola 1.5L</h5>
+                        <h5 class="price"> S/ 7.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="36">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucar1.5L.png') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola Sin Azucar 1.5L</h5>
+                        <h5 class="price"> S/ 7.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="37">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucar1.5L.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Inca Kola Sin Azucar 1.5L</h5>
+                        <h5 class="price"> S/7.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="38">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaCola1L.jpg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola 1L</h5>
+                        <h5 class="price"> S/ 4.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="39">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKola1L.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Inca Kola 1L</h5>
+                        <h5 class="price"> S/ 4.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="40">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucar1L.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola Sin Azucar 1L</h5>
+                        <h5 class="price"> S/4.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="41">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucar1L.png') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5> Inca Kola Sin Azucar 1L</h5>
+                        <h5 class="price"> S/ 4.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="42">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaColaPersonal.png') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola Personal</h5>
+                        <h5 class="price"> S/ 2.50 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="43">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
             
-        </ul>
-    </div>
-    
-    <div class="menu">
-        <script type="text/javascript">
-            function MensajeCorrecto(){
-                console.log("Listo. Se ha añadido correctamente al carrito.");
-                alert("Listo. Se ha añadido correctamente al carrito.")
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaPersonal.png') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Inca Kola Personal</h5>
+                        <h5 class="price"> S/ 2.50 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="44">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucarPersonal.png') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Coca Cola Sin Azucar Personal</h5>
+                        <h5 class="price"> S/ 2.70 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="45">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucarPersonal.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Inca Kola Sin Azucar Personal</h5>
+                        <h5 class="price"> S/ 2.70 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="46">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/FantaPersonal.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Fanta Personal</h5>
+                        <h5 class="price"> S/ 3.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="47">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+            
+            <div class="bebidas">
+                <img src="{{ url_for('static',filename='styles/bebidas/SpritePersonal.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Sprite Personal</h5>
+                        <h5 class="price"> S/ 3.20 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="48">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <script>
+            const botones_sel= document.querySelectorAll('.selec');
+            for (let i =0;i <botones_sel.length;i++){
+                const boton= botones_sel[i];
+                const prod_id= boton.value;
+                boton.onclick=function(e){
+                    console.log(e);
+                    fetch('/bebidas/selecc',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                            'prod_id':prod_id
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(function MensajeCorrecto(){
+                        console.log("Listo. Se ha añadido correctamente al carrito.");
+                        alert("Listo. Se ha añadido correctamente al carrito.");
+                    })
+                }
             }
         </script>
-        
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaCola1.5.jpg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola 1.5L</h5>
-                    <h5 class="price"> S/ 7.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
 
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKola1.5L.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Inca Kola 1.5L</h5>
-                    <h5 class="price"> S/ 7.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucar1.5L.png') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola Sin Azucar 1.5L</h5>
-                    <h5 class="price"> S/ 7.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucar1.5L.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Inca Kola Sin Azucar 1.5L</h5>
-                    <h5 class="price"> S/7.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaCola1L.jpg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola 1L</h5>
-                    <h5 class="price"> S/ 4.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKola1L.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Inca Kola 1L</h5>
-                    <h5 class="price"> S/ 4.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucar1L.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola Sin Azucar 1L</h5>
-                    <h5 class="price"> S/4.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucar1L.png') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5> Inca Kola Sin Azucar 1L</h5>
-                    <h5 class="price"> S/ 4.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaColaPersonal.png') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola Personal</h5>
-                    <h5 class="price"> S/ 2.50 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-        
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaPersonal.png') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Inca Kola Personal</h5>
-                    <h5 class="price"> S/ 2.50 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/CocaColaSinAzucarPersonal.png') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Coca Cola Sin Azucar Personal</h5>
-                    <h5 class="price"> S/ 2.70 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/IncaKolaSinAzucarPersonal.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Inca Kola Sin Azucar Personal</h5>
-                    <h5 class="price"> S/ 2.70 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/FantaPersonal.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Fanta Personal</h5>
-                    <h5 class="price"> S/ 3.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-        
-        <div class="bebidas">
-            <img src="{{ url_for('static',filename='styles/bebidas/SpritePersonal.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Sprite Personal</h5>
-                    <h5 class="price"> S/ 3.20 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-    </div>
-
-</body></html>
+    </body>
+</html>
