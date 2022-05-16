@@ -25,6 +25,7 @@ class usuario(db.Model):
     direccion = db.Column(db.String(), nullable=False)
     telefono = db.Column(db.Integer, nullable=False)
     fechaHora = db.Column(db.DateTime, default=datetime.now())
+    pedidos = db.relationship('pedido', backref='user', lazy=True)
 
     def __init__(
             self,
@@ -70,6 +71,8 @@ class pedido(db.Model):
     precio = db.Column(db.Float(), nullable=False)
     cliente = db.Column(db.String(), nullable=False)
     fechaHora = db.Column(db.DateTime, default=datetime.now())
+    user_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
+
 
     def __repr__(self):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente}'
