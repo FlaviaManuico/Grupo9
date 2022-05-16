@@ -23,13 +23,6 @@
             </ul>
         </div>
         <div class="menu">
-            <script type="text/javascript">
-                function MensajeCorrecto(){
-                    console.log("Listo. Se ha añadido correctamente al carrito.");
-                    alert("Listo. Se ha añadido correctamente al carrito.")
-                }
-            </script>
-
             <div class="pizzas">
                 <img src="{{ url_for('static',filename='styles/pizzas/Hawaiana.jpeg') }}">
                 <div class="details">
@@ -37,14 +30,14 @@
                         <h5>Pizza Hawaiana</h5>
                         <h5 class="price"> Desde S/ 10.00 </h5>
                     </div>
-                    <select>
-                        <option>Familiar (+ S/ 22.90) </option>
-                        <option>Grande (+ S/ 12.90)</option>
-                        <option>Mediana (+ S/ 6.90)</option>
-                        <option>Personal</option>
+                    <select class="opt" name="seleccion1">
+                        <option value="5" selected>Familiar (+ S/ 22.90) </option>
+                        <option value="6">Grande (+ S/ 12.90)</option>
+                        <option value="7">Mediana (+ S/ 6.90)</option>
+                        <option value="8">Personal</option>
                     </select>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -56,14 +49,14 @@
                         <h5>Pizza Americana</h5>
                         <h5 class="price"> Desde S/ 7.00 </h5>
                     </div>
-                    <select>
-                        <option>Familiar (+ S/ 22.90)</option>
-                        <option>Grande (+ S/ 12.90)</option>
-                        <option>Mediana (+ S/ 6.90)</option>
-                        <option>Personal</option>
+                    <select class="opt" name="seleccion2">
+                        <option value="9" selected>Familiar (+ 22.90)</option>
+                        <option value="10">Grande (+ 12.90)</option>
+                        <option value="11">Mediana (+ S/ 6.90)</option>
+                        <option value="12">Personal</option>
                     </select>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -75,14 +68,14 @@
                         <h5>Pizza de Pepperoni</h5>
                         <h5 class="price"> Desde S/ 8.00</h5>
                     </div>
-                    <select>
-                        <option>Familiar (+ S/ 22.90)</option>
-                        <option>Grande (+ S/ 12.90)</option>
-                        <option>Mediana (+ S/ 6.90)</option>
-                        <option>Personal</option>
+                    <select class="opt" name="seleccion3">
+                        <option value="13" selected>Familiar (+ S/ 22.90)</option>
+                        <option value="14">Grande (+ S/ 12.90)</option>
+                        <option value="15">Mediana (+ S/6.90)</option>
+                        <option value="16">Personal</option>
                     </select>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -94,17 +87,51 @@
                         <h5>Pizza Mozzarella</h5>
                         <h5 class="price">Desde S/ 9.00</h5>
                     </div>
-                    <select id="opc" name="opciones">
-                        <option>Familiar (+ S/ 22.90)</option>
-                        <option>Grande (+ S/ 12.90)</option>
-                        <option>Mediana (+ S/ 6.90)</option>
-                        <option>Personal</option>
+                    <select class="opt" name="seleccion4">
+                        <option value="17" selected>Familiar (+ S/ 22.90)</option>
+                        <option value="18">Grande (+ S/ 12.90)</option>
+                        <option value="19">Mediana (+ S/ 6.90)</option>
+                        <option value="20">Personal</option>
                     </select>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
         </div>
+
+        <script>
+            const selectores=document.querySelectorAll('.opt')
+            var prod_id;
+            for(let i=0; i<selectores.length;i++){
+                const selector=selectores[i];
+                prod_id=selector.value
+                selector.onchange = function(e) {
+                    prod_id=selector.value;
+                    console.log(prod_id);
+                }
+            }
+
+            const botones=document.querySelectorAll('.selec')
+            for(let i=0; i<botones.length;i++){
+                const boton=botones[i];
+                boton.onclick=function(e){
+                    console.log(e);
+                    fetch('/pizzas/selecc',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                            'prod_id':prod_id
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(function MensajeCorrecto(){
+                        console.log("Listo. Se ha añadido correctamente al carrito.");
+                        alert("Listo. Se ha añadido correctamente al carrito.");
+                    })
+                }
+            }      
+
+        </script>
     </body>
 </html>
