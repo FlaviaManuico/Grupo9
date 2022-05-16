@@ -55,7 +55,24 @@
                 
             </div>
                 <script>
-                    
+                    const items = document.querySelectorAll('.delete-button');
+                    for (let i = 0; i < items.length; i ++) {
+                        const item = items[i];
+                        item.onclick = function(e) {
+                            const pedido_id = e.target.dataset['id'];
+                            fetch('/pedidos/' + pedido_id + '/delete-pedido', {
+                                method: 'DELETE'
+                            }).then(function(response) {
+                                return response.json();
+                            }).then(function(jsonResponse) {
+                                if (jsonResponse['success']) {
+                                    const table = document.getElementById('table');
+                                    var index= item.parentElement.parentElement.rowIndex;
+                                    table.deleteRow(index);
+                                }
+                            });
+                        }
+                    }
 
                     document.getElementsByClassName("calculo")[0].addEventListener("click",calcular);
                     function calcular() {
