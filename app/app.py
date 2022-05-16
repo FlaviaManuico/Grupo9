@@ -257,6 +257,21 @@ def ir_postres():
 def ir_pedidos():
     return render_template('pedidos.html', pedidos=carrito_compra.query.all())
 
+@app.route('/pedidos/<pedido_id>/delete-pedido', methods=['DELETE'])
+def delete_pedido(pedido_id):
+    response = {}
+    try:
+        pedido = carrito_compra.query.get(pedido_id)
+        db.session.delete(pedido)
+        db.session.commit()
+        response['success'] = True
+    except:
+        response['success'] = False
+        db.session.rollback()
+    finally:
+        db.session.close()
+    return jsonify(response)
+
 
 @app.route('/guidos/create_user', methods=['POST'])
 def create_user():

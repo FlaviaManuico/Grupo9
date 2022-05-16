@@ -55,19 +55,21 @@
                 
             </div>
                 <script>
-                document.getElementsByClassName("calculo")[0].addEventListener("click",calcular);
-                function calcular() {
-                    var filas=document.querySelectorAll("#miTabla tbody tr");
-                    var total=0;
-                
-                    filas.forEach(function(e) {
-                        var columnas=e.querySelectorAll("td");
-                        var cantidad=parseFloat(columnas[1].textContent);
-                        total+=cantidad;
-                    });
-                    var filas=document.querySelectorAll("#miTabla tfoot tr td");
-                    filas[1].textContent=total.toFixed(2);
-                }
+                    
+
+                    document.getElementsByClassName("calculo")[0].addEventListener("click",calcular);
+                    function calcular() {
+                        var filas=document.querySelectorAll("#miTabla tbody tr");
+                        var total=0;
+                    
+                        filas.forEach(function(e) {
+                            var columnas=e.querySelectorAll("td");
+                            var cantidad=parseFloat(columnas[1].textContent);
+                            total+=cantidad;
+                        });
+                        var filas=document.querySelectorAll("#miTabla tfoot tr td");
+                        filas[1].textContent=total.toFixed(2);
+                    }
                 </script>
         </div>
     </body>
