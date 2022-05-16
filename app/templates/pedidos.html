@@ -19,8 +19,28 @@
                 <li><a href="/postres">Postres 🍰</a></li>
                 <li><a href="/pedidos">Carrito 🛒</a></li>
                 <li><a href="/logout"> Log Out ❌</a></li>
-    
             </ul>
+        </div>
+        <div class="carrito-container">
+            <h1>Carrito de Compras</h1>
+            <div class="pedidos">
+                <table class="producto">
+                    <thead>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Eliminar</th>
+                    </thead>
+                    <tbody>
+                        {% for pedido in pedidos %}
+                        <tr>
+                            <td id ='pedidos'>{{pedido.comida}}</td>
+                            <td>&dollar;{{pedido.precio}}</td>
+                            <td><button class="delete-button" data-id="{{pedido.id}}">&cross;</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
