@@ -8,6 +8,7 @@ Integrantes del grupo:
 - Alvaro Riojas Baldeon - 201710184
 
 Descripción del Proyecto:
+
 Este proyecto consiste en una página web de la pizzería “Don Guido 's Pizza”, en la cual se ofrece el servicio de delivery. 
 Antes de mostrar el menú de la pizzería, la página pide ingresar a una cuenta, en caso de no tener cuenta hay una sección donde te envía  a poder registrarse. Una vez dentro de tu cuenta la página muestra los diferentes productos (pizzas, entradas, postres, lasagna, combos y bebidas) y permite al cliente poder comprar a través de esta web. 
 
