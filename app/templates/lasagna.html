@@ -24,13 +24,6 @@
         </div>
 
         <div class="menu">
-            <script type="text/javascript">
-                function MensajeCorrecto(){
-                    console.log("Listo. Se ha añadido correctamente al carrito.");
-                    alert("Listo. Se ha añadido correctamente al carrito.")
-                }
-            </script>
-
             <div class="lasagnas">
                 <img src="{{ url_for('static',filename='styles/lasagnas/LVegatariana.jpeg') }}">
                 <div class="details">
@@ -39,7 +32,7 @@
                         <h5 class="price"> S/22.90 </h5>
                     </div>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec" value="21">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -52,7 +45,7 @@
                         <h5 class="price"> S/ 20.90 </h5>
                     </div>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec" value="22">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -65,7 +58,7 @@
                         <h5 class="price"> S/ 22.90 </h5>
                     </div>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec" value="23">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -78,7 +71,7 @@
                         <h5 class="price"> S/24.90 </h5>
                     </div>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec" value="24">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
@@ -91,12 +84,34 @@
                         <h5 class="price"> S/25.90 </h5>
                     </div>
                     <div class="boton">
-                        <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                        <button class="selec" value="25">Añadir al Carrito</button>
                     </div>                      
                 </div>
             </div>
 
         </div>
+        <script>
+            const botones_sel= document.querySelectorAll('.selec');
+            for (let i =0;i <botones_sel.length;i++){
+                const boton= botones_sel[i];
+                const prod_id= boton.value;
+                boton.onclick=function(e){
+                    console.log(e);
+                    fetch('/lasagnas/selecc',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                            'prod_id':prod_id
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(function MensajeCorrecto(){
+                        console.log("Listo. Se ha añadido correctamente al carrito.");
+                        alert("Listo. Se ha añadido correctamente al carrito.");
+                    })
+                }
+            }
+        </script>
 
     </body>
 </html>

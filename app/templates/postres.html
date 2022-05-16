@@ -69,7 +69,7 @@
                 const prod_id= boton.value;
                 boton.onclick=function(e){
                     console.log(e);
-                    fetch('/bebidas/selecc',{
+                    fetch('/postres/selecc',{
                         method: 'POST',
                         body: JSON.stringify({
                             'prod_id':prod_id
