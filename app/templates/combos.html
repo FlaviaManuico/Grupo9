@@ -1,72 +1,98 @@
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>Pedido - Guido's Pizza</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/combos.css') }}">
-</head>
-<body>
-   
-    <div>   
-        <div class="enlace">
-            <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
-        </div>
-        <ul class="heading">     
-            <li><a href="/entradas">Entradas 🥟</a></li>
-            <li><a href="/pizzas">Pizzas 🍕</a></li>
-            <li><a href="/lasagnas">Lasagnas 🍝</a></li>
-            <li><a href="/combos">Combos ⭐️</a></li>
-            <li><a href="/bebidas">Bebidas 🥤</a></li>
-            <li><a href="/postres">Postres 🍰</a></li>
-            <li><a href="/pedidos">Carrito 🛒</a></li>
-            <li><a href="/logout"> Log Out ❌</a></li>
+        <meta charset="UTF-8">
+        <title>Pedido - Guido's Pizza</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/combos.css') }}">
+    </head>
+    <body>
+    
+        <div>   
+            <div class="enlace">
+                <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
+            </div>
+            <ul class="heading">     
+                <li><a href="/entradas">Entradas 🥟</a></li>
+                <li><a href="/pizzas">Pizzas 🍕</a></li>
+                <li><a href="/lasagnas">Lasagnas 🍝</a></li>
+                <li><a href="/combos">Combos ⭐️</a></li>
+                <li><a href="/bebidas">Bebidas 🥤</a></li>
+                <li><a href="/postres">Postres 🍰</a></li>
+                <li><a href="/pedidos">Carrito 🛒</a></li>
+                <li><a href="/logout"> Log Out ❌</a></li>
 
-        </ul>
-    </div>
-    <div class="menu">
-        <script type="text/javascript">
-            function MensajeCorrecto(){
-                console.log("Listo. Se ha añadido correctamente al carrito.");
-                alert("Listo. Se ha añadido correctamente al carrito.")
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="combos">
+                <img src="{{ url_for('static',filename='styles/combos/ComboPersonal.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Combo Personal</h5>
+                        <h5 class="price">Desde S/ 11.50</h5>
+                    </div>
+                    <p>Este combo incluye una pizza de tamaño personal (a tu elección), una gasesosa personal Coca Cola y 2 panes al ajo</p>
+                    <select class="opt" name="seleccion1">
+                        <option value="26">Pizza Americana</option>
+                        <option value="27">Pizza Hawaiana (+ S/ 3.00)</option>
+                        <option value="28">Pizza Pepperoni (+ S/ 1.00)</option>
+                    </select>
+                    <div class="boton">
+                        <button class="selec">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+            
+            <div class="combos">
+                <img src="{{ url_for('static',filename='styles/combos/ComboMediano.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Combo Mediano</h5>
+                        <h5 class="price">Desde S/ 25.90</h5>
+                    </div>
+                    <p>Este combo incluye una pizza de tamaño mediano (a tu elección), una gaseosa Coca Cola y 4 panes al ajo.</p>
+                    <select class="opt" name="seleccion2">
+                        <option value="29">Pizza Americana</option>
+                        <option value="30">Pizza Hawaiana (+ S/ 3.00)</option>
+                        <option value="31">Pizza Pepperoni (+ S/ 1.00)</option>
+                    </select>
+                    <div class="boton">
+                        <button class="selec">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <script>
+            const selectores=document.querySelectorAll('.opt')
+            var prod_id;
+            for(let i=0; i<selectores.length;i++){
+                const selector=selectores[i];
+                prod_id=selector.value
+                selector.onchange = function(e) {
+                    prod_id=selector.value;
+                    console.log(prod_id);
+                }
             }
+
+            const botones=document.querySelectorAll('.selec')
+            for(let i=0; i<botones.length;i++){
+                const boton=botones[i];
+                boton.onclick=function(e){
+                    console.log(e);
+                    fetch('/combos/selecc',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                            'prod_id':prod_id
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(function MensajeCorrecto(){
+                        console.log("Listo. Se ha añadido correctamente al carrito.");
+                        alert("Listo. Se ha añadido correctamente al carrito.");
+                    })
+                }
+            }      
+
         </script>
-
-        <div class="combos">
-            <img src="{{ url_for('static',filename='styles/combos/ComboPersonal.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Combo Personal</h5>
-                    <h5 class="price">Desde S/ 11.50</h5>
-                </div>
-                <p>Este combo incluye una pizza de tamaño personal (a tu elección), una gasesosa personal Coca Cola y 2 panes al ajo</p>
-                <select>
-                    <option>Pizza Americana</option>
-                    <option>Pizza Hawaiana (+ S/ 3.00)</option>
-                    <option>Pizza Pepperoni (+ S/ 1.00)</option>
-                </select>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-        
-        <div class="combos">
-            <img src="{{ url_for('static',filename='styles/combos/ComboMediano.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Combo Mediano</h5>
-                    <h5 class="price">Desde S/ 25.90</h5>
-                </div>
-                <p>Este combo incluye una pizza de tamaño mediano (a tu elección), una gaseosa Coca Cola y 4 panes al ajo.</p>
-                <select>
-                    <option>Pizza Americana</option>
-                    <option>Pizza Hawaiana (+ S/ 3.00)</option>
-                    <option>Pizza Pepperoni (+ S/ 1.00)</option>
-                </select>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-    </div>
-
-</body></html>
+    </body>
+</html>
