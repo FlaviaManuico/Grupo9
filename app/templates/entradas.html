@@ -1,88 +1,103 @@
 <html>
     <head>
-    <meta charset="UTF-8">
-    <title>Pedido - Guido's Pizza</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/entradas.css') }}">
-</head>
-<body>
-   
-    <div>   
-        <div class="enlace">
-            <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
+        <meta charset="UTF-8">
+        <title>Pedido - Guido's Pizza</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/entradas.css') }}">
+    </head>
+    <body>
+    
+        <div>   
+            <div class="enlace">
+                <img src="{{ url_for('static',filename='styles/logo.JPG') }}" alt="" class="logo">
+            </div>
+            <ul class="heading">     
+                <li><a href="/entradas">Entradas 🥟</a></li>
+                <li><a href="/pizzas">Pizzas 🍕</a></li>
+                <li><a href="/lasagnas">Lasagnas 🍝</a></li>
+                <li><a href="/combos">Combos ⭐️</a></li>
+                <li><a href="/bebidas">Bebidas 🥤</a></li>
+                <li><a href="/postres">Postres 🍰</a></li>
+                <li><a href="/pedidos">Carrito 🛒</a></li>
+                <li><a href="/logout">Log Out ❌</a></li>
+
+            </ul>
         </div>
-        <ul class="heading">     
-            <li><a href="/entradas">Entradas 🥟</a></li>
-            <li><a href="/pizzas">Pizzas 🍕</a></li>
-            <li><a href="/lasagnas">Lasagnas 🍝</a></li>
-            <li><a href="/combos">Combos ⭐️</a></li>
-            <li><a href="/bebidas">Bebidas 🥤</a></li>
-            <li><a href="/postres">Postres 🍰</a></li>
-            <li><a href="/pedidos">Carrito 🛒</a></li>
-            <li><a href="/logout">Log Out ❌</a></li>
 
-        </ul>
-    </div>
+        <div class="menu">
+            <div class="entradas">
+                <img src="{{ url_for('static',filename='styles/entradas/PanAlAjo.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pan al Ajo (x2)</h5>
+                        <h5 class="price"> S/ 4.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="1">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
 
-    <div class="menu">
-        <script type="text/javascript">
-            function MensajeCorrecto(){
-                console.log("Listo. Se ha añadido correctamente al carrito.");
-                alert("Listo. Se ha añadido correctamente al carrito.")
+
+            <div class="entradas">
+                <img src="{{ url_for('static',filename='styles/entradas/PanAlAjo.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Pan al Ajo (x4)</h5>
+                        <h5 class="price"> S/ 8.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="2">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="entradas">
+                <img src="{{ url_for('static',filename='styles/entradas/PalitosDeQueso.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Palitos de Queso (x2)</h5>
+                        <h5 class="price"> S/ 5.50 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="3">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+
+            <div class="entradas">
+                <img src="{{ url_for('static',filename='styles/entradas/PalitosDeQueso.jpeg') }}">
+                <div class="details">
+                    <div class="details-sub">
+                        <h5>Palitos de Queso (x4)</h5>
+                        <h5 class="price"> S/ 11.00 </h5>
+                    </div>
+                    <div class="boton">
+                        <button class="selec" value="4">Añadir al Carrito</button>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+        <script>
+            const botones_sel= document.querySelectorAll('.selec');
+            for (let i =0;i <botones_sel.length;i++){
+                const boton= botones_sel[i];
+                const prod_id= boton.value;
+                boton.onclick=function(e){
+                    console.log(e);
+                    fetch('/entradas/selecc',{
+                        method: 'POST',
+                        body: JSON.stringify({
+                            'prod_id':prod_id
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    }).then(function MensajeCorrecto(){
+                        console.log("Listo. Se ha añadido correctamente al carrito.");
+                        alert("Listo. Se ha añadido correctamente al carrito.");
+                    })
+                }
             }
         </script>
-
-        <div class="entradas">
-            <img src="{{ url_for('static',filename='styles/entradas/PanAlAjo.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pan al Ajo (x2)</h5>
-                    <h5 class="price"> S/ 4.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-
-        <div class="entradas">
-            <img src="{{ url_for('static',filename='styles/entradas/PanAlAjo.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Pan al Ajo (x4)</h5>
-                    <h5 class="price"> S/ 8.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="entradas">
-            <img src="{{ url_for('static',filename='styles/entradas/PalitosDeQueso.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Palitos de Queso (x2)</h5>
-                    <h5 class="price"> S/ 5.50 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-
-        <div class="entradas">
-            <img src="{{ url_for('static',filename='styles/entradas/PalitosDeQueso.jpeg') }}">
-            <div class="details">
-                <div class="details-sub">
-                    <h5>Palitos de Queso (x4)</h5>
-                    <h5 class="price"> S/ 11.00 </h5>
-                </div>
-                <div class="boton">
-                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
-                </div>                      
-            </div>
-        </div>
-    </div>
-
-</body></html>
+    </body>
+</html>
