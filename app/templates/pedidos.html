@@ -66,7 +66,7 @@
                                 return response.json();
                             }).then(function(jsonResponse) {
                                 if (jsonResponse['success']) {
-                                    const table = document.getElementById('table');
+                                    const table = document.getElementById('miTabla');
                                     var index= item.parentElement.parentElement.rowIndex;
                                     table.deleteRow(index);
                                 }
