@@ -17,7 +17,7 @@
             <li><a href="/combos">Combos ⭐️</a></li>
             <li><a href="/bebidas">Bebidas 🥤</a></li>
             <li><a href="/postres">Postres 🍰</a></li>
-            <li><a href="/pedidos">Carrito 🛒</a></li>
+            <li><a href="/pedidos">🛒</a></li>
 
         </ul>
     </div>
@@ -36,10 +36,26 @@
                     <option>Pizza Hawaiana (+ S/ 3.00)</option>
                     <option>Pizza Pepperoni (+ S/ 1.00)</option>
                 </select>
-                <button>Añadir al Carrito</button>
-            </div>
+                <div class="boton">
+                    <button type="submit" class="btn" onclick="openPopup()">Añadir al Carrito</button>
+                    <div class="popup" id="popup">
+                        <img src="{{ url_for('static',filename='styles/check.png')}}">
+                        <h2>Listo</h2>
+                        <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                        <button type="button" onclick="closePopup()">OK</button>
+                        <!-- <button type="button">Continuar comprando</button> -->
+                    </div>
+                </div>            </div>
         </div>
-
+        <script>
+            let popup = document.getElementById("popup");
+            function openPopup(){
+                popup.classList.add("open-popup");
+            }
+            function closePopup(){
+                popup.classList.remove("open-popup");
+            }
+        </script>
         <div class="combos">
             <img src="{{ url_for('static',filename='styles/combos/ComboMediano.jpeg') }}">
             <div class="details">
@@ -53,9 +69,27 @@
                     <option>Pizza Hawaiana (+ S/ 3.00)</option>
                     <option>Pizza Pepperoni (+ S/ 1.00)</option>
                 </select>
-                <button>Añadir al Carrito</button>
+                <div class="boton">
+                    <button type="submit" class="btn" onclick="openPopup2()">Añadir al Carrito</button>
+                    <div class="popup2" id="popup2">
+                        <img src="{{ url_for('static',filename='styles/check.png')}}">
+                        <h2>Listo</h2>
+                        <p>Se ha añadido tu pedido correctamente al Carrito.</p>
+                        <button type="button" onclick="closePopup2()">OK</button>
+                        <!-- <button type="button">Continuar comprando</button> -->
+                    </div>
+                </div>            
             </div>
         </div>
+        <script>
+            let popup2 = document.getElementById("popup2");
+            function openPopup2(){
+                popup2.classList.add("open-popup2");
+            }
+            function closePopup2(){
+                popup2.classList.remove("open-popup2");
+            }
+        </script>
     </div>
 
 </body></html>
