@@ -20,27 +20,55 @@
                 <li><a href="/pedidos">Carrito 🛒</a></li>
                 <li><a href="/logout"> Log Out ❌</a></li>
             </ul>
-        </div>
-        <div class="carrito-container">
+        </div><div class="carrito-container">
             <h1>Carrito de Compras</h1>
             <div class="pedidos">
-                <table class="producto">
+                <table  id="miTabla" class="producto">
                     <thead>
+                        <tr>
                         <th>Producto</th>
                         <th>Precio</th>
                         <th>Eliminar</th>
+                        </tr>
                     </thead>
+                    
+                    <tfoot>
+                        <tr>
+                            <td><h3>Total (en soles):</h3></td>
+                            <td colspan=3><h3>-----</h3></td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
                     <tbody>
                         {% for pedido in pedidos %}
                         <tr>
                             <td id ='pedidos'>{{pedido.comida}}</td>
-                            <td>&dollar;{{pedido.precio}}</td>
+                            <td>{{pedido.precio}}</td>
                             <td><button class="delete-button" data-id="{{pedido.id}}">&cross;</button></td>
+                            <td></td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+                
+                <p> <button class="calculo">Calcular</button></p>
+                
             </div>
+                <script>
+                document.getElementsByClassName("calculo")[0].addEventListener("click",calcular);
+                function calcular() {
+                    var filas=document.querySelectorAll("#miTabla tbody tr");
+                    var total=0;
+                
+                    filas.forEach(function(e) {
+                        var columnas=e.querySelectorAll("td");
+                        var cantidad=parseFloat(columnas[1].textContent);
+                        total+=cantidad;
+                    });
+                    var filas=document.querySelectorAll("#miTabla tfoot tr td");
+                    filas[1].textContent=total.toFixed(2);
+                }
+                </script>
         </div>
     </body>
 </html>
