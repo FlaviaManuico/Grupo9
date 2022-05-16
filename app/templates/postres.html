@@ -23,6 +23,13 @@
         </ul>
     </div>
     <div class="menu">
+        <script type="text/javascript">
+            function MensajeCorrecto(){
+                console.log("Listo. Se ha añadido correctamente al carrito.");
+                alert("Listo. Se ha añadido correctamente al carrito.")
+            }
+        </script>
+
         <div class="postres">
             <img src="{{ url_for('static',filename='styles/postres/VolcanDeChocolate.jpeg') }}">
             <div class="details">
@@ -31,25 +38,11 @@
                     <h5 class="price"> S/ 6.00 </h5>
                 </div>
                 <div class="boton">
-                    <button type="submit" class="btn" onclick="openPopup()">Añadir al Carrito</button>
-                    <div class="popup" id="popup">
-                        <img src="{{ url_for('static',filename='styles/check.png')}}">
-                        <h2>Listo</h2>
-                        <p>Se ha añadido tu pedido correctamente al Carrito.</p>
-                        <button type="button" onclick="closePopup()">OK</button>
-                        <!-- <button type="button">Continuar comprando</button> -->
-                    </div>
-                </div>                      </div>
+                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                </div>                      
+            </div>
         </div>
-        <script>
-            let popup = document.getElementById("popup");
-            function openPopup(){
-                popup.classList.add("open-popup");
-            }
-            function closePopup(){
-                popup.classList.remove("open-popup");
-            }
-        </script>
+
         <div class="postres">
             <img src="{{ url_for('static',filename='styles/postres/RollosDeCanela.jpeg') }}">
             <div class="details">
@@ -58,25 +51,10 @@
                     <h5 class="price"> S/ 14.00 </h5>
                 </div>
                 <div class="boton">
-                    <button type="submit" class="btn" onclick="openPopup2()">Añadir al Carrito</button>
-                    <div class="popup2" id="popup2">
-                        <img src="{{ url_for('static',filename='styles/check.png')}}">
-                        <h2>Listo</h2>
-                        <p>Se ha añadido tu pedido correctamente al Carrito.</p>
-                        <button type="button" onclick="closePopup2()">OK</button>
-                        <!-- <button type="button">Continuar comprando</button> -->
-                    </div>
-                </div>                      </div>
+                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                </div>                      
+            </div>
         </div>
-        <script>
-            let popup2 = document.getElementById("popup2");
-            function openPopup2(){
-                popup2.classList.add("open-popup2");
-            }
-            function closePopup2(){
-                popup2.classList.remove("open-popup2");
-            }
-        </script>
 
         <div class="postres">
             <img src="{{ url_for('static',filename='styles/postres/PieDeManzana.jpeg') }}">
@@ -86,25 +64,10 @@
                     <h5 class="price"> S/6.00 </h5>
                 </div>
                 <div class="boton">
-                        <button type="submit" class="btn" onclick="openPopup3()">Añadir al Carrito</button>
-                        <div class="popup3" id="popup3">
-                            <img src="{{ url_for('static',filename='styles/check.png')}}">
-                            <h2>Listo</h2>
-                            <p>Se ha añadido tu pedido correctamente al Carrito.</p>
-                            <button type="button" onclick="closePopup3()">OK</button>
-                            <!-- <button type="button">Continuar comprando</button> -->
-                        </div>
-                    </div>                      </div>
+                    <button onclick="MensajeCorrecto()">Añadir al Carrito</button>
+                </div>                      
+            </div>
         </div>
-        <script>
-            let popup3 = document.getElementById("popup3");
-            function openPopup3(){
-                popup3.classList.add("open-popup3");
-            }
-            function closePopup3(){
-                popup3.classList.remove("open-popup3");
-            }
-        </script>
     </div>
 
 </body></html>
