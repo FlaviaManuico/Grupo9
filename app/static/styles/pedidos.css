@@ -146,12 +146,25 @@ tbody button{
 	cursor: pointer;
 	font-family: "Poppins", sans-serif;
 }
+.calculo {
+	position: relative;
+	bottom: 15px;
+	right: -305px;
+	padding: 15px 40px;
+	background-color: #5e8ccd;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	font-family: "Poppins", sans-serif;
+}
 
-button{
-	/* position: absolute; */
-	bottom: 20px;
-	right: 20px;
-	padding: 10px 10px;
+.checkout {
+	position: absolute;
+	bottom: 15px;
+	right: 305px;
+	padding: 15px 40px;
 	background-color: #217944;
 	color: white;
 	font-size: 16px;
