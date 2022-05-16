@@ -74,6 +74,15 @@ class pedido(db.Model):
     def __repr__(self):
         return f'Pedido: id={self.id} descripcion={self.descripcion} precio={self.precio} cliente={self.cliente}'
 
+class carrito_compra(db.Model):
+    __tablename__ = 'carrito'
+    id=db.Column(db.Integer,primary_key=True)
+    comida = db.Column(db.String(),nullable=False)
+    precio= db.Column(db.Float(),nullable=False)
+     
+    def __repr__(self):
+        return f'Producto: id={self.id} comida={self.comida}, precio={self.precio}'
+
 
 db.create_all()
 # Entradas
