@@ -85,33 +85,15 @@ body{
 
 
 .carrito-container{
-	max-width: 800px;
+	max-width: 1000px;
 	margin: 0 auto;
+
 }
 .carrito-container h1 {
 	padding: 20px 0;
 	text-align: center;
 	text-transform: uppercase;
-}
-/* .pedidos {
-	display: flex;
-}
-.pedidosItem {
-	flex: 75%;
-} */
-.item {
-	display: flex;
-	width: 100%;
-	height: 200px;
-	overflow: hidden;
-	margin-bottom: 20px;
-	background: #fff;
-	transition: all .6s ease;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-.item:hover {
-	border: none;
-	transform: scale(1.01);
+	text-decoration: underline;
 }
 
 .producto {
@@ -121,29 +103,24 @@ body{
 	/* text-align: center; */
 }
 .producto thead th{
-	font-size: 18px;
-	
+	font-size: 20px;
 }
 
-.producto tbody{
+table tr{
+	font-size: 18px;
+	padding: 20px;
+	width: 100%;
+}
+
+tbody{
 	font-size: 16px;
-	text-align: left;
+	/* text-align: left; */
 }
 
 .pedidos{
 	text-align: left;
 	max-width:100%;
-}
 
-.btn-area {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	padding: 10px 25px;
-	background-color: #3a71a9;
-	color: white;
-	cursor: pointer;
-	border-radius: 5px;
 }
 
 .btn-area:hover {
@@ -151,46 +128,35 @@ body{
 	color: #fff;
 	font-weight: 600;
 }
-.unit input {
-	width: 40px;
-	padding: 5px;
-	text-align: center;
-}
+
 .btn-area i {
 	margin-right: 5px;
 }
-.lateralPedido {
-	flex: 25%;
-	margin-left: 20px;
-	padding: 20px;
-	height: 400px;
-	border-radius: 5px;
-	background: #fff;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-.lateralPedido hr {
-	margin-bottom: 25px;
-}
-.lateralPedido p {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 30px;
-	font-size: 20px;
-}
-.lateralPedido a {
-	background-color: #76bfb6;
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	text-align: center;
-	height: 40px;
-	line-height: 40px;
-	font-weight: 900;
-}
-.lateralPedido i {
-	margin-right: 15px;
-}
-.lateralPedido a:hover {
-	background-color: #3972a7;
+
+tbody button{
+	/* position: absolute; */
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 10px;
+	background-color: #be3232;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	font-family: "Poppins", sans-serif;
 }
 
+button{
+	/* position: absolute; */
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 10px;
+	background-color: #217944;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	border: none;
+	cursor: pointer;
+	font-family: "Poppins", sans-serif;
+}
