@@ -24,8 +24,6 @@ body{
 .enlace{
     background-color: #cb202d;
     color: #ffffff;
-    /* margin-bottom: 30px; */
-    /* padding: 10px 0 10px 0; */
     position:left ;
     text-align: left;
 }
@@ -36,10 +34,6 @@ body{
 	color: white;
 	padding: 15px;
 	display: block;
-    /* grid-template-columns:align; */
-    /* grid-template-rows: auto 1fr; */
-    /* border: 15px; */
-    /* box-shadow: 0 2px 5px 0  rgba(0,0,0,0.1); */
     box-sizing: border-box;
     border-right: 1px #e9ebee; 
 }
@@ -61,12 +55,14 @@ body{
     grid-column: 1/-1;
     text-align: left;
 }
+
 .heading>h1{
     font-weight: 400;
     font-size: 30px;
     letter-spacing: 10px;
     margin-bottom: 10px;
 }
+
 .heading>h3{
     font-weight: 600;
     font-size: 22px;
@@ -83,7 +79,6 @@ body{
     margin: 0 20px;
 }
 
-
 .carrito-container{
 	max-width: 1000px;
 	margin: 0 auto;
@@ -99,8 +94,6 @@ body{
 .producto {
 	padding: 20px;
 	width: 100%;
-	/* position: relative; */
-	/* text-align: center; */
 }
 .producto thead th{
 	font-size: 20px;
@@ -114,7 +107,6 @@ table tr{
 
 tbody{
 	font-size: 16px;
-	/* text-align: left; */
 }
 
 .pedidos{
@@ -134,7 +126,6 @@ tbody{
 }
 
 tbody button{
-	/* position: absolute; */
 	bottom: 20px;
 	right: 20px;
 	padding: 10px 10px;

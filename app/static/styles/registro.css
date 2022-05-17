@@ -1,7 +1,7 @@
 *{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -19,7 +19,6 @@ body {
   font-size: 15px;
 }
 
-
 .registro-form {
   width: 400px;
   background: white;
@@ -32,48 +31,48 @@ body {
   box-shadow: 7px 13px 37px rgb(100, 96, 96);
 }
 
-  .registro-form h4 {
-    font-size: 20px;
-    margin-bottom: 18px;
-  }
+.registro-form h4 {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
 
-  .controls {
-    width: 100%;
-    background: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    border: 1px solid #a4a7aa;
-    font-family: 'calibri';
-    font-size: 18px;
-    color: rgb(4, 3, 3);
-  }
-  
-  .registro-form p {
-    height: 40px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 40px;
-  }
-  
-  .registro-form a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .registro-form a:hover {
-    color: white;
-    text-decoration: underline;
-  }
-  
-  .registro-form .botons {
-    width: 100%;
-    background: #439057;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
-  }
-  
+.controls {
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #a4a7aa;
+  font-family: 'calibri';
+  font-size: 18px;
+  color: rgb(4, 3, 3);
+}
+
+.registro-form p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.registro-form a {
+  color: white;
+  text-decoration: none;
+}
+
+.registro-form a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.registro-form .botons {
+  width: 100%;
+  background: #439057;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
   

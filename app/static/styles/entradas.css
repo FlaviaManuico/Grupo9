@@ -19,20 +19,9 @@ body{
     grid-gap: 20px 40px;
 }
 
-/* .enlace{
-    display:flex;
-    list-style:none;
-    padding: 0;
-    background:#cb202d;
-    width: 100%;
-	max-width: 1000px;
-	margin: auto;
-} */
 .enlace{
     background-color: #cb202d;
     color: #ffffff;
-    /* margin-bottom: 30px; */
-    /* padding: 10px 0 10px 0; */
     position:left ;
     text-align: left;
 }
@@ -43,15 +32,10 @@ body{
 	color: white;
 	padding: 15px;
 	display: block;
-    /* grid-template-columns:align; */
-    /* grid-template-rows: auto 1fr; */
-    /* border: 15px; */
-    /* box-shadow: 0 2px 5px 0  rgba(0,0,0,0.1); */
     box-sizing: border-box;
     border-right: 1px #e9ebee; 
     
 }
-
 
 .heading li{
 	display: inline-block;
