@@ -12,8 +12,6 @@ app.secret_key = 'super secret key'
 db = SQLAlchemy(app)
 
 # Models
-
-
 class usuario(db.Model):
     __tablename__ = 'usuarios'
     id = db.Column(db.Integer, primary_key=True)
@@ -89,6 +87,8 @@ class carrito_compra(db.Model):
 
 
 db.create_all()
+
+# PRODUCTOS
 # Entradas
 pAjo2 = producto(comida='Pan al Ajo (x2)', precio=4.00)
 pAjo4 = producto(comida='Pan al Ajo (x4)', precio=8.00)
@@ -201,6 +201,7 @@ if len(producto.query.all()) == 0:
     db.session.commit()
 
 
+# CONTROLLER
 @app.route('/', methods=['GET'])
 def index():
     return render_template('ingresar.html')
