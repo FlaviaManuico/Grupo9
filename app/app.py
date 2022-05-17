@@ -1,6 +1,6 @@
 import sys
 from datetime import datetime
-from flask import Flask, jsonify, request, url_for, render_template, redirect, flash, session
+from flask import Flask, jsonify, request, url_for, render_template, redirect, flash, session, abort
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -447,6 +447,21 @@ def selec_combos():
     finally:
         db.session.close()
 
+@app.route('/noencontrado')
+def noencontrado():
+    return abort(404)
+
+@app.errorhandler(404)
+def access_error(error):
+    return render_template('errores/error404.html'), 404
+
+@app.route('/bloqueado')
+def bloqueado():
+    return abort(401)
+
+@app.errorhandler(401)
+def access_error(error):
+    return render_template('errores/error401.html'), 401
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
