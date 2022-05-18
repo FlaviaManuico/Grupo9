@@ -34,6 +34,7 @@ Las librerías que hemos utilizado son:
 - flask_sqlalchemy: Un ORM que nos permite trabajar con las tablas de la base de datos como si estas fueran objetos.
 - Flask-migrate:Es una extensión que maneja la migración de la base de datos SQLAlchemy para las aplicaciones Flask.
 - Werkzeug.security: librería que nos ayudó a poder poner la contraseña del usuario en un estilo incógnito, para garantizar la seguridad del usuario.
+- flask-login: libreria que nos servirá para poder gestionar la sesion y tambien para manejar las tareas de login y logout.
 
 
 ## Información acerca de los API. Requests y Responses de cada endpoint utilizado en el sistema:
