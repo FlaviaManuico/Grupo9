@@ -1,18 +1,21 @@
 import sys
 from datetime import datetime
-from flask import Flask, jsonify, request, url_for, render_template, redirect, flash, session, abort
+from flask import Flask, jsonify, request, url_for, render_template, redirect, flash, abort
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import LoginManager,UserMixin, current_user, login_user, logout_user, login_required
 
 # Configuration
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost:5432/pizza'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'super secret key'
+app.config['SECRET_KEY'] = 'SuperSecretKey'
 db = SQLAlchemy(app)
+login_manager_app= LoginManager(app)
+
 
 # Models
-class usuario(db.Model):
+class usuario(UserMixin,db.Model):
     __tablename__ = 'usuarios'
     id = db.Column(db.Integer, primary_key=True)
     usuario = db.Column(db.String(), nullable=False)
@@ -51,6 +54,9 @@ class usuario(db.Model):
     def __repr__(self):
         return f'Usuario: id={self.id}, usuario={self.usuario}, contrasena={self.contrasena}, nombre={self.nombre}, apellido={self.apellido}, email={self.email}, direccion={self.direccion}, telefono={self.telefono},fechaHora={self.fechaHora}'
 
+@login_manager_app.user_loader
+def load_user(user_id):
+    return usuario.query.get(int(user_id))
 
 class producto(db.Model):
     __tablename__ = 'productos'
@@ -202,22 +208,30 @@ if len(producto.query.all()) == 0:
 
 
 # CONTROLLER
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
-    return render_template('ingresar.html')
+    return redirect(url_for('log_in'))
 
 
-@app.route('/guidos/login', methods=['POST'])
+@app.route('/guidos/login', methods=['GET','POST'])
 def log_in():
-    username = request.form.get('NombreDeUsuario', '')
-    password = request.form.get('Contraseña', '')
-    user = usuario.query.filter_by(usuario=username).first()
-    if user is not None and user.verify_password(password):
-        session['username'] = username
-        return render_template("pizzas.html")
+    if request.method=='POST':
+        username= request.form.get('NombreDeUsuario','')
+        password= request.form.get('Contraseña','')
+        user= usuario.query.filter_by(usuario=username).first()
+        if user is not None:
+            if user.verify_password(password)==True:
+                login_user(user)
+                print(current_user.usuario)
+                return redirect(url_for("ir_pizzas"))
+            else:
+                flash('Contraseña incorrecta')
+                return render_template('ingresar.html')
+        else:
+            flash('Usuario no encontrado')
+            return render_template('ingresar.html')
     else:
-        flash('Usuario o contraseña incorrecta')
-        return redirect(url_for('index'))
+        return render_template('ingresar.html')
 
 
 @app.route('/registrarse', methods=['GET'])
@@ -225,9 +239,10 @@ def registrar():
     return render_template('registro.html')
 
 
-@app.route('/logout', methods=['GET'])
+@app.route('/logout')
 def logout():
-    return render_template('ingresar.html')
+    logout_user()
+    return redirect(url_for('log_in'))
 
 
 @app.route('/entradas', methods=['GET'])
@@ -303,8 +318,6 @@ def create_user():
         email_base = usuario.query.filter_by(email=email).first()
 
         if '' in respuesta:
-            print(respuesta)
-            session['registro'] = user
             flash('Por favor llene todos los casilleros')
             return redirect(url_for('registrar'))
         else:
@@ -321,7 +334,6 @@ def create_user():
                 db.session.commit()
             else:
                 if user_base.usuario == user or email_base.email == email:
-                    session['registro'] = user
                     flash('Usuario o correo ya usado')
                     return redirect(url_for('registrar'))
                 else:
@@ -357,7 +369,7 @@ def selec_pizza():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_pizzas'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
@@ -374,7 +386,7 @@ def selec_entrada():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_entradas'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
@@ -391,7 +403,7 @@ def selec_bebidas():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_bebidas'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
@@ -408,7 +420,7 @@ def selec_postres():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_postres'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
@@ -425,7 +437,7 @@ def selec_lasagnas():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_lasagnas'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
@@ -442,7 +454,7 @@ def selec_combos():
         db.session.add(pedido_new)
         db.session.commit()
         return redirect(url_for('ir_combos'))
-    except BaseException:
+    except Exception:
         db.session.rollback()
     finally:
         db.session.close()
