@@ -246,36 +246,43 @@ def logout():
 
 
 @app.route('/entradas', methods=['GET'])
+@login_required
 def ir_entrada():
     return render_template('entradas.html')
 
 
 @app.route('/pizzas', methods=['GET'])
+@login_required
 def ir_pizzas():
     return render_template('pizzas.html')
 
 
 @app.route('/lasagnas', methods=['GET'])
+@login_required
 def ir_lasagnas():
     return render_template('lasagna.html')
 
 
 @app.route('/combos', methods=['GET'])
+@login_required
 def ir_comobos():
     return render_template('combos.html')
 
 
 @app.route('/bebidas', methods=['GET'])
+@login_required
 def ir_bebidas():
     return render_template('bebidas.html')
 
 
 @app.route('/postres', methods=['GET'])
+@login_required
 def ir_postres():
     return render_template('postres.html')
 
 
 @app.route('/pedidos', methods=['GET'])
+@login_required
 def ir_pedidos():
     return render_template('pedidos.html', pedidos=carrito_compra.query.all())
 
