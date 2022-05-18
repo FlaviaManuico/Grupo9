@@ -63,3 +63,4 @@ Las librerías que hemos utilizado son:
 
 ## Manejo de Errores
 - 404: Página no encontrada
+- 401: Página no autorizada
