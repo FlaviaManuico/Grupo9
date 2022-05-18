@@ -61,3 +61,5 @@ Las librerías que hemos utilizado son:
 ## Hosts:
 - Puerto: 5000
 
+## Manejo de Errores
+- 404: Página no encontrada
