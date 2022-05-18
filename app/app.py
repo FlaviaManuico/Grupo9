@@ -474,13 +474,5 @@ def noencontrado():
 def access_error(error):
     return render_template('errores/error404.html'), 404
 
-@app.route('/bloqueado')
-def bloqueado():
-    return abort(401)
-
-@app.errorhandler(401)
-def access_error(error):
-    return render_template('errores/error401.html'), 401
-
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
