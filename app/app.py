@@ -468,19 +468,11 @@ def selec_combos():
     finally:
         db.session.close()
 
-@app.route('/checkout',methods=['DELETE'])
+@app.route('/checkout',methods=['POST'])
 def checkout():
-    response = {}
-    try:
-        db.session.delete(carrito_compra)
-        db.session.commit()
-        response['success'] = True
-    except:
-        response['success'] = False
-        db.session.rollback()
-    finally:
-        db.session.close()
-    return jsonify(response)
+    db.session.delete(carrito_compra)
+    db.session.commit()
+    return render_template('pedidos.html')
 
 
 @app.route('/noencontrado')
