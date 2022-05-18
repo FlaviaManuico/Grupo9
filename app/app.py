@@ -2,6 +2,7 @@ import sys
 from datetime import datetime
 from flask import Flask, jsonify, request, url_for, render_template, redirect, flash, abort
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager,UserMixin, current_user, login_user, logout_user, login_required
 
@@ -12,6 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'SuperSecretKey'
 db = SQLAlchemy(app)
 login_manager_app= LoginManager(app)
+migrate = Migrate(app, db)
 
 
 # Models
