@@ -468,6 +468,21 @@ def selec_combos():
     finally:
         db.session.close()
 
+@app.route('/checkout',methods=['DELETE'])
+def checkout():
+    response = {}
+    try:
+        db.session.delete(carrito_compra)
+        db.session.commit()
+        response['success'] = True
+    except:
+        response['success'] = False
+        db.session.rollback()
+    finally:
+        db.session.close()
+    return jsonify(response)
+
+
 @app.route('/noencontrado')
 def noencontrado():
     return abort(404)
